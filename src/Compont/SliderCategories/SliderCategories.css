@@ -1,0 +1,11 @@
+.silder-categories {
+  padding: 20px;
+  margin-top: 20px;
+}
+.silder-categories .swiper-pagination-bullet {
+  width: 11px;
+  height: 11px;
+}
+.silder-categories .swiper-pagination-bullet-active {
+  background-color: var(--red-color);
+}
