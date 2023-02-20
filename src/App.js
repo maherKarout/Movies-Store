@@ -5,11 +5,13 @@ import MoviesListScreen from "./Page/MoviesListScreen/MoviesListScreen";
 import Navbar from "./Compont/Navbar/Navbar";
 import Home from "./Page/Home/Home";
 import MovieDetails from "./Page/MovieDetails/MovieDetails";
+import WatchList from "./Page/WatchList/WatchList";
 
 export const categoriesContext = createContext();
 
 function App() {
   const [idCategories, setIdCategories] = useState(0);
+  const [watchList, setWatchList] = useState([]);
   // const [idMovie, setIdMovie] = useState(1);
   const [selectedListItem, setSelectedListItem] = useState({});
   return (
@@ -20,6 +22,8 @@ function App() {
           idCategories,
           selectedListItem,
           setSelectedListItem,
+          watchList,
+          setWatchList,
         }}
       >
         <Navbar />
@@ -28,6 +32,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path=":categories" element={<MoviesListScreen />} />
             <Route path=":categories/Details" element={<MovieDetails />} />
+            <Route path="/WatchList" element={<WatchList />} />
             <Route path="*" element={<Box>Error</Box>} />
           </Routes>
         </Container>

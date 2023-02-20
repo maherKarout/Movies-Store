@@ -17,13 +17,15 @@ import "swiper/css/autoplay";
 import "swiper/css/virtual";
 
 function MovieDetails() {
-  const { selectedListItem } = useContext(categoriesContext);
-  console.log(selectedListItem);
+  const { selectedListItem, setWatchList, watchList } =
+    useContext(categoriesContext);
+  console.log("WAHCH LIST IS", watchList);
+  console.log("SELECTED CATEGOREIS", selectedListItem);
+
+  console.log("RE RENDER MOVE DETALIS %%%%%%%%%%%%%%%%%%%%%%");
   return (
     <div className="movie-details">
-      <Box className="box-img">
-        {/* <img src={`https://darsoft.b-cdn.net/assets/movies/2.jpg`} alt="" /> */}
-
+      <Box className="box-vedio">
         <iframe
           width="560"
           height="315"
@@ -67,16 +69,29 @@ function MovieDetails() {
           </Box>
         </Box>
         <Box>
+          {console.log("wathclilst before click", watchList)}
           <Button
             color="error"
             variant="contained"
             endIcon={<AddIcon sx={{ fontSize: "30px" }} />}
+            disabled={
+              watchList.findIndex((item) => item.id === selectedListItem.id) + 1
+                ? true
+                : false
+            }
             sx={{
               borderRadius: "30px",
               width: "250px",
               paddingY: "15px",
               paddingX: "20px",
               fontSize: "18px",
+              opacity:
+                watchList.findIndex((item) => item === selectedListItem) + 1
+                  ? "0.5"
+                  : "1",
+            }}
+            onClick={() => {
+              setWatchList([...watchList, selectedListItem]);
             }}
           >
             Addto watchlist
@@ -114,12 +129,13 @@ function MovieDetails() {
         <Swiper
           modules={[Pagination]}
           spaceBetween={20}
-          slidesPerView={4}
+          // slidesPerView={4}
+          slidesPerView={selectedListItem.actors.length <= 4 ? 3 : 4}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
         >
           {selectedListItem.actors.map((actor, index) => {
             return (

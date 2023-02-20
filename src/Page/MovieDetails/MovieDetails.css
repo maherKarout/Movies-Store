@@ -1,11 +1,11 @@
-.movie-details .box-img {
+.movie-details .box-vedio {
   width: 100%;
   height: 500px;
   margin-bottom: 50px;
   border-radius: var(--radius);
   overflow: hidden;
 }
-.movie-details .box-img iframe {
+.movie-details .box-vedio iframe {
   width: 100%;
   height: 100%;
 }
