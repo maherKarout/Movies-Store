@@ -41,8 +41,24 @@ a {
 a:focus {
   outline: none;
 }
-
+img {
+  width: 100%;
+}
 @font-face {
   font-family: Avenir;
   src: url("../public/font/AvenirLTStd-Black.otf");
+}
+
+.swiper-pagination-bullet {
+  width: 11px !important;
+  height: 11px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--red-color) !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--red-color) !important;
+  top: 40%;
 }

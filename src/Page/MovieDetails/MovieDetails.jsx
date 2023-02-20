@@ -5,6 +5,17 @@ import "./MovieDetails.css";
 import AddIcon from "@mui/icons-material/Add";
 import StarIcon from "@mui/icons-material/Star";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+// import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+
+import "swiper/css/autoplay";
+import "swiper/css/virtual";
+
 function MovieDetails() {
   const { selectedListItem } = useContext(categoriesContext);
   console.log(selectedListItem);
@@ -18,7 +29,7 @@ function MovieDetails() {
           height="315"
           src={`https://www.youtube.com/embed/${selectedListItem.youtube_video_id}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           // allowfullscreen
         ></iframe>
@@ -96,6 +107,53 @@ function MovieDetails() {
               })}
           </p>
         </Box>
+      </Box>
+
+      <Box className="casts">
+        <Typography sx={{ fontSize: "40px" }}>acast</Typography>
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={20}
+          slidesPerView={4}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {selectedListItem.actors.map((actor, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <Box sx={{ textAlign: "center" }}>
+                  <Box
+                    className="img"
+                    sx={{
+                      width: "160px",
+                      height: "160px",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      marginX: "auto",
+                      marginY: "20px",
+                      border: " 1.5px solid #8292A9",
+                    }}
+                  >
+                    <img
+                      src={`https://darsoft.b-cdn.net/assets/artists/${actor.id}.jpg`}
+                      alt=""
+                    />
+                  </Box>
+                  <Typography sx={{ textAlign: "center" }}>
+                    {actor.name}
+                  </Typography>
+                </Box>
+              </SwiperSlide>
+            );
+          })}
+
+          <br />
+          <br />
+          <br />
+        </Swiper>
       </Box>
     </div>
   );
