@@ -4,18 +4,19 @@ import { useParams } from "react-router";
 import StarIcon from "@mui/icons-material/Star";
 import { categoriesContext } from "../../App";
 import "./MoviesListScreen.css";
+import { Link } from "react-router-dom";
 
 function MoviesListScreen() {
   const urlCategories = useParams("categories");
   const [movies, setMovies] = useState([]);
+
   // CONTEXT API
-  const { idCategories } = useContext(categoriesContext);
+  const { idCategories, setSelectedListItem } = useContext(categoriesContext);
 
   useEffect(() => {
     fetch("https://darsoft.b-cdn.net/movies.json")
       .then((repo) => repo.json())
       .then((data) => {
-        console.log("Data Equal :", data.movies);
         setMovies(filterMovies(data.movies, idCategories));
       });
   }, []);
@@ -30,7 +31,12 @@ function MoviesListScreen() {
       {movies.length !== 0 &&
         movies.map((movie, index) => {
           return (
-            <Box className="list-movie-item" key={index}>
+            <Link
+              to="Details"
+              className="list-movie-item"
+              key={index}
+              onClick={() => setSelectedListItem(movie)}
+            >
               <Box
                 className="img"
                 sx={{
@@ -72,7 +78,7 @@ function MoviesListScreen() {
                   {movie.rating}
                 </Typography>
               </Box>
-            </Box>
+            </Link>
           );
         })}
     </div>
@@ -86,3 +92,17 @@ function filterMovies(array = [], idCategories) {
     return mov.category_id === idCategories;
   });
 }
+
+// function filterCategories(array = [], titleCategorie, setIdCategories) {
+//   let id = 0;
+//   array.forEach((cate, index) => {
+//     if (
+//       cate.title.trim().toLowerCase() === titleCategorie.trim().toLowerCase()
+//     ) {
+//       id = cate.id;
+//     }
+//   });
+//   console.log("iddddddddddddddddddddddddddd", id);
+//   setIdCategories(id);
+//   return id;
+// }
