@@ -13,7 +13,7 @@ export function splitArray(array = []) {
     countCategories = 6;
   }
 
-  array.forEach((item, index) => {
+  array?.forEach((item, index) => {
     if ((index + 1) % countCategories === 0) {
       arraEle.push(item);
       bigarray.push(arraEle);
@@ -26,5 +26,3 @@ export function splitArray(array = []) {
 
   return bigarray;
 }
-
-window.addEventListener("resize", splitArray);

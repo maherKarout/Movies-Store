@@ -16,11 +16,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 import "swiper/css";
-// import "swiper/css/bundle";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import "swiper/css/scrollbar";
-// import "swiper/css/hash-navigation ";
 
 import "swiper/css/autoplay";
 import "swiper/css/virtual";
@@ -35,6 +32,7 @@ function MovieDetails() {
     else if (widthScreen < 900) return 3;
     else return selectedListItem.actors.length <= 4 ? 3 : 4;
   };
+  window.addEventListener("resize", () => setWidthScreen(window.innerWidth));
 
   useEffect(() => {
     if (localStorage.getItem("selecteListItme")) {
