@@ -17,6 +17,7 @@
   width: 228px;
   height: 224px;
   overflow: hidden;
+  background-color: var(--white-color);
 }
 .list-box-movies .list-movie-item .img img {
   width: 100%;

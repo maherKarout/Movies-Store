@@ -1,39 +1,32 @@
 import { Box, Typography } from "@mui/material";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import { categoriesContext } from "../../App";
 
 import "./ListBoxMovies.css";
 function ListBoxMovies({ index, movie }) {
-  const { setSelectedListItem } = useContext(categoriesContext);
+  const { setSelectedListItem, idCategories } = useContext(categoriesContext);
 
+  const handelSelecteListItem = () => {
+    setSelectedListItem(movie);
+    localStorage.setItem("selecteListItme", JSON.stringify(movie));
+  };
   return (
     <div className="list-box-movies">
       <Link
         to="Details"
         className="list-movie-item"
-        onClick={() => {
-          setSelectedListItem(movie);
-          localStorage.setItem("selecteListItme", JSON.stringify(movie));
-        }}
+        onClick={handelSelecteListItem}
       >
-        <Box
-          className="img"
-          sx={{
-            width: "200px",
-            height: "200px",
-            background: "var(--white-color)",
-          }}
-        >
+        <Box className="img">
           <img
-            src={`https://darsoft.b-cdn.net/assets/movies/${movie.id}.jpg`}
-            alt="no imagsfde"
+            src={`https://darsoft.b-cdn.net/assets/movies/${movie?.id}.jpg`}
+            alt=""
           />
         </Box>
         <Box className="movie-list-title">
           <Typography
-            variant="p"
             component="p"
             sx={{ fontSize: "30px", fontWeight: "800" }}
             className="title"

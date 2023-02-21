@@ -1,0 +1,12 @@
+.watch-list h1 {
+  margin-bottom: 30xp;
+  font-size: 50px;
+  font-weight: 800;
+  color: var(--pink-color);
+}
+
+.watch-list .no-movies {
+  width: 100%;
+  margin-top: 20%;
+  transform: translateY(-50%);
+}

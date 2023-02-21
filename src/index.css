@@ -25,18 +25,36 @@ code {
   --red-color: #b0413d;
   --white-color: #d9d9d9;
   --pink-color: #ff9693;
+  --text-white-color: #ffffff;
 
   --radius: 20px;
+
+  --xs: 0px;
+  --sm: 600px;
+  --md: 900px;
+  --lg: 1200px;
 }
 
 body {
   background-color: var(--primary-black-color);
-  color: var(--white-color);
+  color: var(--text-white-color);
 }
 
+button {
+  background-color: var(--red-color);
+}
 a {
   text-decoration: none;
   color: var(--white-color);
+}
+.big-font {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.md-font {
+  font-size: 30px;
+  font-weight: 500;
 }
 a:focus {
   outline: none;

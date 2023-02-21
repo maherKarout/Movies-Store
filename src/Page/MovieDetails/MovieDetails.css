@@ -1,17 +1,46 @@
+.movie-details {
+  margin: 20px auto;
+}
 .movie-details .box-vedio {
   width: 100%;
   height: 500px;
   margin-bottom: 50px;
   border-radius: var(--radius);
   overflow: hidden;
+  background-color: black;
+  background-image: url("../../Assets/Img/amalie-steiness.gif");
+  background-size: 10%;
+  background-position: center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
 }
 .movie-details .box-vedio iframe {
   width: 100%;
   height: 100%;
 }
 
-.movie-details {
-  margin: 20px auto;
+.movie-details .title .year {
+  margin-right: 20px;
+}
+.movie-details button {
+  border-radius: 30px;
+  width: 250px;
+  padding: 15px 20px;
+  font-size: 18px;
+}
+
+.movie-details .summary h3 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.movie-details .summary p {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.directors-writer {
+  margin-bottom: 10px;
 }
 .directors-writer p {
   color: var(--secondary-black-color);
@@ -22,4 +51,27 @@
   font-weight: 800;
   font-size: 25px;
   margin-right: 10px;
+}
+
+.slider-swiper .img-actor {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 1px solid var(--white-color);
+}
+.slider-swiper .img-actor img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-scrollbar-drag {
+  height: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .movie-details button {
+    margin: 30px 0;
+  }
 }

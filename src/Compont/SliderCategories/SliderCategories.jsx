@@ -5,12 +5,17 @@ import BoxCategories from "../BoxCategories/BoxCategories";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { categoriesContext } from "../../App";
+import { splitArray } from "../../Utils/SpiltArrrayForCategories/SplitArray";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 function SliderCategories() {
   const [categoreis, setCategoreis] = useState([]);
+  const [sizeWindow, setSizeWindow] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => setSizeWindow(window.innerWidth));
 
   // CONTEXT API
   const { setIdCategories } = useContext(categoriesContext);
@@ -27,11 +32,7 @@ function SliderCategories() {
         modules={[Pagination]}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
       >
         {splitArray(categoreis).map((arrayCategore, index) => {
           return (
@@ -70,20 +71,20 @@ export default SliderCategories;
 
 // FUNCTIN TO SPLIT ARRAY TO 6 ARREAYS
 
-function splitArray(array = []) {
-  let arraEle = [];
-  let bigarray = [];
+// function splitArray(array = []) {
+//   let arraEle = [];
+//   let bigarray = [];
 
-  array.forEach((item, index) => {
-    if ((index + 1) % 6 === 0) {
-      arraEle.push(item);
-      bigarray.push(arraEle);
-      arraEle = [];
-    } else {
-      arraEle.push(item);
-    }
-  });
-  arraEle.length !== 0 && bigarray.push(arraEle);
+//   array.forEach((item, index) => {
+//     if ((index + 1) % 6 === 0) {
+//       arraEle.push(item);
+//       bigarray.push(arraEle);
+//       arraEle = [];
+//     } else {
+//       arraEle.push(item);
+//     }
+//   });
+//   arraEle.length !== 0 && bigarray.push(arraEle);
 
-  return bigarray;
-}
+//   return bigarray;
+// }

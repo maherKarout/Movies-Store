@@ -13,7 +13,15 @@
 .logo {
   font-size: 24px;
 }
+.nav-bar ul {
+  display: flex;
+  flex-direction: row;
+}
+.nav-bar ul li {
+  display: flex;
 
+  justify-content: space-between;
+}
 .nav-bar li a.active {
   color: var(--red-color);
 }
@@ -27,17 +35,17 @@
   height: fit-content;
   margin-left: 20px;
 }
+.search input {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  padding: 0 5px;
+  color: var(--white-color);
+}
 @media (max-width: 900px) {
   .search {
     border: 1px solid var(--white-color);
     margin-left: 0px;
-  }
-  .search input {
-    background-color: transparent;
-    width: 100%;
-    border: none;
-    padding: 0 5px;
-    color: var(--white-color);
   }
 }
 .search input:focus {
@@ -46,9 +54,12 @@
 .search svg {
   color: var(--secondary-black-color);
 }
-.company {
+.nav-bar .company {
+  display: flex;
+}
+.company a {
   margin-left: 20px;
-
+  display: flex;
   align-items: center;
 }
 .nav-bar .company img {
@@ -56,4 +67,67 @@
   height: 40px;
   border-radius: 50%;
   margin: 0 10px;
+}
+
+.right-side {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  padding: 0px;
+  display: flex;
+  z-index: 3;
+  top: 0;
+  transition: 0.5s;
+  background-color: var(--primary-black-color);
+  height: 100%;
+}
+.nav-bar .header-menu {
+  display: none;
+}
+@media (max-width: 900px) {
+  .nav-bar {
+    padding: 20px;
+    justify-content: space-between;
+  }
+  .right-side {
+    padding: 10px;
+    display: block;
+    position: absolute;
+    background-color: var(--secondary-black-color);
+    height: 100vh;
+  }
+  .nav-bar ul {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  .nav-bar ul li {
+    margin-bottom: 10px;
+    padding: 10px 0;
+  }
+  .nav-bar ul li a {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--white-color);
+  }
+  .nav-bar .header-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-bar .company {
+    display: none;
+  }
+  .nav-bar ul li:first-child {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+  .nav-bar ul li .company {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-bar ul li .company a {
+    border: none;
+  }
 }
