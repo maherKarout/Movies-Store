@@ -8,7 +8,13 @@ import { Route, Routes } from "react-router";
 
 import WatchList from "./Page/WatchList/WatchList";
 import { Navbar } from "./Compont/indexCompont";
-import { Home, MovieDetails, MoviesListScreen, Error } from "./Page/indexPage";
+import {
+  Home,
+  MovieDetails,
+  MoviesListScreen,
+  Error,
+  About,
+} from "./Page/indexPage";
 
 export const categoriesContext = createContext();
 
@@ -36,6 +42,7 @@ function App() {
             <Route path=":id/:categories" element={<MoviesListScreen />} />
             <Route path=":id/:categories/Details" element={<MovieDetails />} />
             <Route path="/WatchList" element={<WatchList />} />
+            <Route path="/About" element={<About />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Container>

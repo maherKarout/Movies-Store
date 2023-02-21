@@ -13,8 +13,10 @@ function ListBoxMovies({ index, movie }) {
       <Link
         to="Details"
         className="list-movie-item"
-        // key={index}
-        onClick={() => setSelectedListItem(movie)}
+        onClick={() => {
+          setSelectedListItem(movie);
+          localStorage.setItem("selecteListItme", JSON.stringify(movie));
+        }}
       >
         <Box
           className="img"

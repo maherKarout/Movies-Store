@@ -8,6 +8,7 @@
   font-weight: 800;
   padding: 35px 0;
   margin-bottom: 50px;
+  position: relative;
 }
 .logo {
   font-size: 24px;
@@ -26,12 +27,18 @@
   height: fit-content;
   margin-left: 20px;
 }
-.search input {
-  background-color: transparent;
-  width: 100%;
-  border: none;
-  padding: 0 5px;
-  color: var(--white-color);
+@media (max-width: 900px) {
+  .search {
+    border: 1px solid var(--white-color);
+    margin-left: 0px;
+  }
+  .search input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding: 0 5px;
+    color: var(--white-color);
+  }
 }
 .search input:focus {
   outline: none;
@@ -41,7 +48,7 @@
 }
 .company {
   margin-left: 20px;
-  display: flex;
+
   align-items: center;
 }
 .nav-bar .company img {
