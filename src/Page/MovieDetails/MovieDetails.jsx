@@ -131,8 +131,6 @@ function MovieDetails() {
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={20}
-                // slidesPerView={4}
-                // slidesPerView={selectedListItem.actors.length <= 4 ? 3 : 4}
                 slidesPerView={sizeSlider(widthScreen)}
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}

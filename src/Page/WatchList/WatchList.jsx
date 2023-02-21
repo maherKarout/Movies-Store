@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import "./WatchList.css";
 import { categoriesContext } from "../../App";
 import ListBoxMovies from "../../Compont/ListBoxMovies/ListBoxMovies";

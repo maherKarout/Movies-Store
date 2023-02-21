@@ -3,7 +3,7 @@ import "./SliderCategories.css";
 import { Box, Grid } from "@mui/material";
 import BoxCategories from "../BoxCategories/BoxCategories";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Pagination } from "swiper";
 import { categoriesContext } from "../../App";
 import { splitArray } from "../../Utils/SpiltArrrayForCategories/SplitArray";
 
@@ -68,23 +68,3 @@ function SliderCategories() {
 }
 
 export default SliderCategories;
-
-// FUNCTIN TO SPLIT ARRAY TO 6 ARREAYS
-
-// function splitArray(array = []) {
-//   let arraEle = [];
-//   let bigarray = [];
-
-//   array.forEach((item, index) => {
-//     if ((index + 1) % 6 === 0) {
-//       arraEle.push(item);
-//       bigarray.push(arraEle);
-//       arraEle = [];
-//     } else {
-//       arraEle.push(item);
-//     }
-//   });
-//   arraEle.length !== 0 && bigarray.push(arraEle);
-
-//   return bigarray;
-// }
