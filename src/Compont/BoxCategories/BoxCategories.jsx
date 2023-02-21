@@ -5,8 +5,8 @@ import "./BoxCategories.css";
 
 function BoxCategories({ children }) {
   return (
-    <Link to={`/${children}`} className="box-categories">
-      {children}
+    <Link to={`/${children.id}/${children.title}`} className="box-categories">
+      {children.title}
     </Link>
   );
 }

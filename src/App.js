@@ -1,11 +1,14 @@
 import { Box, Container } from "@mui/material";
 import { createContext, useState } from "react";
 import { Route, Routes } from "react-router";
-import MoviesListScreen from "./Page/MoviesListScreen/MoviesListScreen";
-import Navbar from "./Compont/Navbar/Navbar";
-import Home from "./Page/Home/Home";
-import MovieDetails from "./Page/MovieDetails/MovieDetails";
+// import MoviesListScreen from "./Page/MoviesListScreen/MoviesListScreen";
+// import Navbar from "./Compont/Navbar/Navbar";
+// import Home from "./Page/Home/Home";
+// import MovieDetails from "./Page/MovieDetails/MovieDetails";
+
 import WatchList from "./Page/WatchList/WatchList";
+import { Navbar } from "./Compont/indexCompont";
+import { Home, MovieDetails, MoviesListScreen, Error } from "./Page/indexPage";
 
 export const categoriesContext = createContext();
 
@@ -30,10 +33,10 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path=":categories" element={<MoviesListScreen />} />
-            <Route path=":categories/Details" element={<MovieDetails />} />
+            <Route path=":id/:categories" element={<MoviesListScreen />} />
+            <Route path=":id/:categories/Details" element={<MovieDetails />} />
             <Route path="/WatchList" element={<WatchList />} />
-            <Route path="*" element={<Box>Error</Box>} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </Container>
       </categoriesContext.Provider>

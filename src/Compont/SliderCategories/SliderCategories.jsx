@@ -47,10 +47,9 @@ function SliderCategories() {
                       key={index}
                       onClick={() => {
                         setIdCategories(catego.id);
-                        console.log(catego.id);
                       }}
                     >
-                      <BoxCategories>{catego.title}</BoxCategories>
+                      <BoxCategories>{catego}</BoxCategories>
                     </Grid>
                   );
                 })}

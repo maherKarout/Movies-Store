@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import { Outlet } from "react-router";
-import SliderCategories from "../../Compont/SliderCategories/SliderCategories";
+import { SliderCategories } from "../../Compont/indexCompont";
 import "./Home.css";
 function Home() {
   return (

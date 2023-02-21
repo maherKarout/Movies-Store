@@ -19,10 +19,7 @@ import "swiper/css/virtual";
 function MovieDetails() {
   const { selectedListItem, setWatchList, watchList } =
     useContext(categoriesContext);
-  console.log("WAHCH LIST IS", watchList);
-  console.log("SELECTED CATEGOREIS", selectedListItem);
 
-  console.log("RE RENDER MOVE DETALIS %%%%%%%%%%%%%%%%%%%%%%");
   return (
     <div className="movie-details">
       <Box className="box-vedio">
@@ -69,7 +66,6 @@ function MovieDetails() {
           </Box>
         </Box>
         <Box>
-          {console.log("wathclilst before click", watchList)}
           <Button
             color="error"
             variant="contained"

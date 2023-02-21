@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import DarsoftImg from "./DarSoft.png";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navItems = ["Home", "WatchList", "About"];
 function Navbar() {
@@ -48,7 +48,9 @@ function Navbar() {
 
         <Box className="company">
           <img src={DarsoftImg} alt="not font" />
-          <span>DarSoft</span>
+          <span>
+            <Link to={"https://darsoft.net"}>DarSoft</Link>
+          </span>
         </Box>
       </Box>
     </Box>
